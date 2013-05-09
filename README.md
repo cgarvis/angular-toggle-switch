@@ -1,0 +1,2 @@
+angular-toggle-switch
+=====================
