@@ -1,4 +1,4 @@
-angular.module('toggle-switch', []).directive('toggleSwitch', function() {
+angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function() {
   return {
     restrict: 'EA',
     replace: true,
