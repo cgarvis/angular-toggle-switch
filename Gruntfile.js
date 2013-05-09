@@ -16,13 +16,21 @@ module.exports = function (grunt) {
       },
     },
 
+    ngmin: {
+      dist: {
+        files: {
+          'angular-toggle-switch.min.js': ['angular-toggle-switch.js']
+        }
+      }
+    },
+
     uglify: {
       options: {
         mangle: false
       },
       dist: {
         files: {
-          'angular-toggle-switch.min.js': ['angulat-toggle-switch.js']
+          'angular-toggle-switch.min.js': ['angular-toggle-switch.min.js']
         }
       }
     }
