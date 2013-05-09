@@ -6,7 +6,7 @@ Toggle Switches for AngularJS.  Based off [Bootstrap switch](http://www.larentis
 Installation
 ------------
 
-Download [angular-toggle-switch.min.js]() or install with bower.
+Download [angular-toggle-switch.min.js](https://raw.github.com/cgarvis/angular-toggle-switch/master/angular-toggle-switch.min.js) or install with bower.
 
 ```bash
 $ bower install angular-toggle-switch --save
