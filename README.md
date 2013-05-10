@@ -5,7 +5,7 @@ Toggle Switches for AngularJS.  Based off [Bootstrap switch](http://www.larentis
 
 Demo
 ----
-[cgarvis.github.io/angular-toggle-switch](cgarvis.github.io/angular-toggle-switch)
+[cgarvis.github.io/angular-toggle-switch](http://cgarvis.github.io/angular-toggle-switch)
 
 Installation
 ------------
