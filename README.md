@@ -3,6 +3,10 @@ angular-toggle-switch
 
 Toggle Switches for AngularJS.  Based off [Bootstrap switch](http://www.larentis.eu/switch/) by Matt Lartentis.
 
+Demo
+----
+[cgarvis.github.io/angular-toggle-switch](cgarvis.github.io/angular-toggle-switch)
+
 Installation
 ------------
 
