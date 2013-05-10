@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="demo">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -7,6 +7,8 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/angular-toggle-switch.css">
+    <link rel="stylesheet" href="https://raw.github.com/cgarvis/angular-toggle-switch/master/angular-toggle-switch.css" type="text/css" media="screen">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -53,23 +55,31 @@
 
 <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">toggle-switch</span> <span class="na">model=</span><span class="s">"switchStatus"</span><span class="nt">&gt;&lt;/div&gt;</span>
 </pre></div>
+
+<h2>Demo</h2>
+
+<toggle-switch model="switchState"></toggle-switch>
+<p>State: {{switchState}}</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/cgarvis">cgarvis</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="https://raw.github.com/cgarvis/angular-toggle-switch/master/angular-toggle-switch.min.js"></script>
+    <script src="javascripts/demo.js"></script>
     <script src="javascripts/scale.fix.js"></script>
-              <script type="text/javascript">
-            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-          </script>
-          <script type="text/javascript">
-            try {
-              var pageTracker = _gat._getTracker("UA-40777193-1");
+    <script type="text/javascript">
+        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+        try {
+            var pageTracker = _gat._getTracker("UA-40777193-1");
             pageTracker._trackPageview();
-            } catch(err) {}
-          </script>
+        } catch(err) {}
+    </script>
 
   </body>
 </html>
