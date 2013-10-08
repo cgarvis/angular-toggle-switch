@@ -1,27 +1,31 @@
 describe('Toggle Switch', function() {
-  var $scope, elm;
+  var $scope, $compile;
 
-  var template = '<toggle-switch model="switchState">\n</toggle-switch>';
+  var baseTemplate = '<toggle-switch model="switchState">\n</toggle-switch>';
+  var onLabelTemplate = '<toggle-switch model="switchState" on-label="CUSTOM">\n</toggle-switch>';
+  var offLabelTemplate = '<toggle-switch model="switchState" off-label="CUSTOM">\n</toggle-switch>';
 
   // Load up just our module
   beforeEach(module('toggle-switch'));
 
-  beforeEach(inject(function($rootScope, $compile) {
+  beforeEach(inject(function($rootScope, _$compile_) {
     // Get an isolated scope
     $scope = $rootScope.$new();
-
-    // Compile Directive
-    elm = angular.element(template);
-    $compile(elm)($scope);
-    $scope.$digest();
+    $compile = _$compile_;
   }));
 
-  it('sets model to false by default', function() {
-    expect($scope.switchState).toEqual(false);
-  });
+  function compileDirective(template, scope) {
+    // Compile Directive
+    var elm = angular.element(template);
+    $compile(elm)(scope);
+    scope.$digest();
 
-  describe('when state is false', function() {
+    return elm;
+  };
+
+  describe('when state is null', function() {
     it('changes model to true when clicked', function() {
+      var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
       expect($scope.switchState).toEqual(true);
     });
@@ -36,8 +40,38 @@ describe('Toggle Switch', function() {
     });
 
     it('changes model to false when clicked', function() {
+      var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
       expect($scope.switchState).toEqual(false);
+    });
+  });
+
+  describe('when state is false', function() {
+    // Change state to true
+    beforeEach(function() {
+      $scope.$apply(function() {
+        $scope.switchState = false;
+      });
+    });
+
+    it('changes model to true when clicked', function() {
+      var elm = compileDirective(baseTemplate, $scope);
+      elm.triggerHandler('click');
+      expect($scope.switchState).toEqual(true);
+    });
+  });
+
+  describe('when there is a custom `on-label`', function () {
+    it('sets the on label', function() {
+      var elm = compileDirective(onLabelTemplate, $scope);
+      expect(elm.text()).toContain('CUSTOM');
+    });
+  });
+
+  describe('when there is a custom `off-label`', function () {
+    it('sets the on label', function() {
+      var elm = compileDirective(offLabelTemplate, $scope);
+      expect(elm.text()).toContain('CUSTOM');
     });
   });
 });
