@@ -13,7 +13,7 @@ module.exports = function (grunt) {
     bump: {
       options: {
         commitMessage: 'chore: release v%VERSION%',
-        commitFiles: ['package.json', 'bower.json'],
+        commitFiles: ['package.json', 'bower.json', 'angular-toggle-switch.min.js'],
         files: ['package.json', 'bower.json'],
         pushTo: 'master'
       }
