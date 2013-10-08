@@ -32,6 +32,13 @@
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-watch": "~0.3.1",
     "grunt-karma": "~0.4.3",
-    "matchdep": "~0.1.2"
-  }
+    "matchdep": "~0.1.2",
+    "grunt-npm": "0.0.2",
+    "grunt-auto-release": "0.0.4",
+    "grunt-bump": "0.0.11"
+  },
+  "contributors": [
+    "alexander rusanov <alexander.rusanov@gmail.com>",
+    "Shinework <adrien.baptiste@gmail.com>"
+  ]
 }
