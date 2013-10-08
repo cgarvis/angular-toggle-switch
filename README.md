@@ -34,7 +34,7 @@ or
 ### Custom Labels
 ```html
 <toggle-switch model="switchStatus" on-label="True" off-label="False"></toggle-switch>
-```html
+```
 
 Development
 ----------
