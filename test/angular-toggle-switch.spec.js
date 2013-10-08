@@ -18,8 +18,7 @@ describe('Toggle Switch', function() {
     // Compile Directive
     var elm = angular.element(template);
     $compile(elm)(scope);
-    scope.$digest();
-
+    scope.$apply();
     return elm;
   };
 
