@@ -10,6 +10,14 @@ module.exports = function (grunt) {
       }
     },
 
+    bump: {
+      options: {
+        commitMessage: 'chore: release v%VERSION%',
+        files: ['package.json', 'bower.json'],
+        pushTo: 'master'
+      }
+    },
+
     karma: {
       unit: {
         configFile: 'karma.conf.js'
@@ -21,6 +29,12 @@ module.exports = function (grunt) {
         files: {
           'angular-toggle-switch.min.js': ['angular-toggle-switch.js']
         }
+      }
+    },
+
+    'npm-contributors': {
+      options: {
+        commitMessage: 'chore: update contributors'
       }
     },
 
@@ -40,6 +54,14 @@ module.exports = function (grunt) {
     'ngmin',
     'uglify'
   ]);
+
+  grunt.registerTask('release', 'Bump the version', function(type) {
+    grunt.task.run([
+      'build',
+      'npm-contributors',
+      'bump:' + (type ? type : 'patch')
+    ]);
+  });
 
   // Default task.
   grunt.registerTask('default', ['watch']);
