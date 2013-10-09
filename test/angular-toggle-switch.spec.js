@@ -64,6 +64,7 @@ describe('Toggle Switch', function() {
     it('sets the on label', function() {
       var elm = compileDirective(onLabelTemplate, $scope);
       expect(elm.text()).toContain('CUSTOM');
+      //expect(elm.text()).toContain('Off');
     });
   });
 
@@ -71,6 +72,21 @@ describe('Toggle Switch', function() {
     it('sets the on label', function() {
       var elm = compileDirective(offLabelTemplate, $scope);
       expect(elm.text()).toContain('CUSTOM');
+      //expect(elm.text()).toContain('On');
     });
   });
+
+  describe('when there are no custom labels', function () {
+
+    it('sets the default on label', function() {
+      var elm = compileDirective(baseTemplate, $scope);
+      expect(elm.text()).toContain('On');
+    });
+
+    it('sets the default off label', function() {
+      var elm = compileDirective(baseTemplate, $scope);
+      expect(elm.text()).toContain('Off');
+    });
+  });
+
 });
