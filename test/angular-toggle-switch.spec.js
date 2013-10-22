@@ -22,6 +22,22 @@ describe('Toggle Switch', function() {
     return elm;
   };
 
+  describe('default labels', function() {
+    var elm;
+
+    beforeEach(function() {
+      elm = compileDirective(baseTemplate, $scope);
+    });
+
+    it('onLabel', function() {
+      expect(elm.text()).toContain('On');
+    });
+
+    it('offLabel', function() {
+      expect(elm.text()).toContain('Off');
+    });
+  });
+
   describe('when state is null', function() {
     it('changes model to true when clicked', function() {
       var elm = compileDirective(baseTemplate, $scope);
