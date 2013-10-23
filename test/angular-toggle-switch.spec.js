@@ -4,6 +4,7 @@ describe('Toggle Switch', function() {
   var baseTemplate = '<toggle-switch model="switchState">\n</toggle-switch>';
   var onLabelTemplate = '<toggle-switch model="switchState" on-label="CUSTOM">\n</toggle-switch>';
   var offLabelTemplate = '<toggle-switch model="switchState" off-label="CUSTOM">\n</toggle-switch>';
+  var knobLabelTemplate = '<toggle-switch model="switchState" knob-label="CUSTOM">\n</toggle-switch>';
 
   // Load up just our module
   beforeEach(module('toggle-switch'));
@@ -86,6 +87,13 @@ describe('Toggle Switch', function() {
   describe('when there is a custom `off-label`', function () {
     it('sets the on label', function() {
       var elm = compileDirective(offLabelTemplate, $scope);
+      expect(elm.text()).toContain('CUSTOM');
+    });
+  });
+
+  describe('when there is a custom `knob-label`', function () {
+    it('sets the on label', function() {
+      var elm = compileDirective(knobLabelTemplate, $scope);
       expect(elm.text()).toContain('CUSTOM');
     });
   });
