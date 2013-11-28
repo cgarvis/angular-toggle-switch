@@ -42,7 +42,18 @@ Development
 Testing is done using Karma Test Runner.
 
 ```bash
-$ grunt karma:unit
+$ grunt karma
+```
+
+Build the project.
+
+```bash
+$ grunt build
+```
+
+Run the tests continuously whilst developing.
+```bas
+$ grunt watch
 ```
 
 Release
