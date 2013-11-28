@@ -38,7 +38,7 @@
     "matchdep": "~0.3.0"
   },
   "peerDependencies": {
-    "bower": "~1.2.7",
+    "bower": ">=1.0.0",
     "grunt-cli": "~0.1.11",
     "karma": "~0.10.6"
   },
