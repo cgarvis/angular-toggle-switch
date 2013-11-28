@@ -52,7 +52,7 @@ $ grunt build
 ```
 
 Run the tests continuously whilst developing.
-```bas
+```bash
 $ grunt watch
 ```
 
