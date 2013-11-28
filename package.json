@@ -6,6 +6,10 @@
     "name": "Chris Garvis",
     "url": "http://chrisgarvis.com"
   },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/cgarvis/angular-toggle-switch.git"
+  },
   "licenses": [{
     "type": "MIT",
     "url": "http://www.opensource.org/licenses/mit-license"
