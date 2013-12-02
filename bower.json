@@ -1,6 +1,6 @@
 {
   "name": "angular-toggle-switch",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "angular-toggle-switch.js",
   "dependencies": {
     "angular": ">=1.0.6 <1.2"
