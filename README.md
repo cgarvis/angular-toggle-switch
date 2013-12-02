@@ -39,10 +39,28 @@ or
 Development
 ----------
 
-Testing is done using Karma Test Runner.
+To install development dependencies:
 
 ```bash
-$ grunt karma:unit
+$ npm install && bower install
+```
+
+Testing is done using Karma Test Runner:
+
+```bash
+$ grunt karma
+```
+
+Build the project:
+
+```bash
+$ grunt build
+```
+
+Run the tests continuously whilst developing:
+
+```bash
+$ grunt watch
 ```
 
 Release
