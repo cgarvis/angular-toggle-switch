@@ -25,6 +25,10 @@ module.exports = function (grunt) {
       },
     },
 
+    jshint: {
+      all: ['Gruntfile.js', 'angular-toggle-switch.js', 'test/angular-toggle-switch.spec.js']
+    },
+
     ngmin: {
       dist: {
         files: {
@@ -52,6 +56,7 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('build', [
+    'jshint:all',
     'ngmin',
     'uglify'
   ]);

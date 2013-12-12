@@ -22,9 +22,9 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
         $scope.knobLabel = angular.isDefined(val) ? val : '\u00A0';
       });
 
-      return $scope.toggle = function () {
-        element.children().addClass('switch-animate')
-        return $scope.model = !$scope.model;
+      $scope.toggle = function toggle() {
+        element.children().addClass('switch-animate');
+        $scope.model = !$scope.model;
       };
     }
   };

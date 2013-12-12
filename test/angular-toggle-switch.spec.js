@@ -21,7 +21,7 @@ describe('Toggle Switch', function() {
     $compile(elm)(scope);
     scope.$apply();
     return elm;
-  };
+  }
 
   describe('default labels', function() {
     var elm;
