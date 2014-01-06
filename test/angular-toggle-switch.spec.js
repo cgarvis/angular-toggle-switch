@@ -5,7 +5,7 @@ describe('Toggle Switch', function() {
   var onLabelTemplate = '<toggle-switch model="switchState" on-label="CUSTOM-ON">\n</toggle-switch>';
   var offLabelTemplate = '<toggle-switch model="switchState" off-label="CUSTOM-OFF">\n</toggle-switch>';
   var knobLabelTemplate = '<toggle-switch model="switchState" knob-label="CUSTOM">\n</toggle-switch>';
-  var htmlLabelsTemplate = '<toggle-switch model="switchState" on-label="<i class=\'icon-ok icon-white\'></i>" off-label="<i class=\'icon-remove\'></i>">\n</toggle-switch>'
+  var htmlLabelsTemplate = '<toggle-switch model="switchState" on-label="<i class=\'icon-ok icon-white\'></i>" off-label="<i class=\'icon-remove\'></i>">\n</toggle-switch>';
 
   // Load up just our module
   beforeEach(module('toggle-switch'));
