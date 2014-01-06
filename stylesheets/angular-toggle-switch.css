@@ -1,3 +1,8 @@
+h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
 .switch {
     border: 1px solid;
     cursor: pointer;

@@ -5,10 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Angular-toggle-switch by cgarvis</title>
 
+    <!-- Theme styles -->
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="stylesheets/angular-toggle-switch.css">
+
+    <!-- Default toggle css -->
     <link rel="stylesheet" href="https://rawgithub.com/cgarvis/angular-toggle-switch/master/angular-toggle-switch.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="stylesheets/angular-toggle-switch.css">
+
+    <!-- <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -48,26 +55,46 @@
 
 <h2>Usage</h2>
 
-<div class="highlight"><pre><span class="nt">&lt;toggle</span><span class="na">-switch</span> <span class="na">model=</span><span class="s">"switchStatus"</span><span class="nt">&gt;&lt;toggle</span><span class="na">-switch</span><span class="nt">&gt;</span>
+<p>Switch Value: {{switchState}}</p>
+
+<h3><a name="default" class="anchor" href="#default"><span class="octicon octicon-link"></span></a>Default</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;toggle-switch</span> <span class="na">model=</span><span class="s">"switchStatus"</span><span class="nt">&gt;&lt;toggle-switch&gt;</span>
 </pre></div>
-
-<p>or</p>
-
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">toggle-switch</span> <span class="na">model=</span><span class="s">"switchStatus"</span><span class="nt">&gt;&lt;/div&gt;</span>
-</pre></div>
-
-<h2>Demo</h2>
 
 <toggle-switch model="switchState"></toggle-switch>
 
-<p>State: {{switchState}}</p>
+<h3><a name="text" class="anchor" href="#text"><span class="octicon octicon-link"></span></a>Text</h3>
 
-<h2>Demo with custom labels</h2>
+<div class="highlight highlight-html"><pre><span class="nt">&lt;toggle-switch</span>
+    <span class="na">model=</span><span class="s">"switchStatus"</span>
+    <span class="na">on-label=</span><span class="s">"sí"</span>
+    <span class="na">off-label=</span><span class="s">"no"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;toggle-switch&gt;</span>
+</pre></div>
 
-<toggle-switch model="switchState" on-label="True" off-label="False"></toggle-switch>
+<toggle-switch model="switchState" on-label="sí" off-label="no"></toggle-switch>
 
-<p>State: {{switchState}}</p>
+<h3> <a name="knob-text" class="anchor" href="#knob-text"><span class="octicon octicon-link"></span></a>Knob Text</h3>
 
+<div class="highlight highlight-html"><pre><span class="nt">&lt;toggle-switch</span>
+    <span class="na">model=</span><span class="s">"switchStatus"</span>
+    <span class="na">knob-label=</span><span class="s">"TV"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;toggle-switch&gt;</span>
+</pre></div>
+
+<toggle-switch model="switchState" knob-label="TV"></toggle-switch>
+
+<h3> <a name="html-text" class="anchor" href="#html-text"><span class="octicon octicon-link"></span></a>HTML Text</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;toggle-switch</span>
+    <span class="na">model=</span><span class="s">"switchStatus"</span>
+    <span class="na">on-label=</span><span class="s">"&lt;i class='fa fa-check'&gt;&lt;/i&gt;"</span>
+    <span class="na">off-label=</span><span class="s">"&lt;i class='fa fa-times'&gt;&lt;/i&gt;"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;toggle-switch&gt;</span>
+</pre></div>
+
+<toggle-switch model="switchState" on-label="<i class='fa fa-check'></i>" off-label="<i class='fa fa-times'></i>"></toggle-switch>
 
       </section>
       <footer>
@@ -76,7 +103,7 @@
       </footer>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-    <script src="https://rawgithub.com/cgarvis/angular-toggle-switch/master/angular-toggle-switch.min.js"></script>
+    <script src="https://rawgithub.com/cgarvis/angular-toggle-switch/master/angular-toggle-switch.js"></script>
     <script src="javascripts/demo.js"></script>
     <script src="javascripts/scale.fix.js"></script>
     <script type="text/javascript">
