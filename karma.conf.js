@@ -47,7 +47,7 @@ autoWatch = false;
 if (process.env.KARMA_BROWSERS) {
   browsers = process.env.KARMA_BROWSERS.replace(' ', '').split(',')
 } else {
-  browsers = ['Chrome', 'Firefox']
+  browsers = ['Chrome', 'Firefox', 'Safari']
 }
 
 // If browser does not capture in given timeout [ms], kill it
