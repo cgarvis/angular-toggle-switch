@@ -22,11 +22,13 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       attrs.$observe('knobLabel', function(val) {
         $scope.knobLabel = angular.isDefined(val) ? val : '\u00A0';
       });
+      
       attrs.$observe('disabled', function(disabled) {
         if(disabled && $scope.model) {
           $scope.toggle();
         }
       });
+      
       $scope.toggle = function toggle() {
         if(!$scope.disabled) {
           element.children().addClass('switch-animate');
