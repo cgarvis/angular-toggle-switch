@@ -38,6 +38,9 @@
     "grunt-bump": "0.0.11",
     "grunt-contrib-jshint": "~0.7.2"
   },
+  "scripts": {
+    "test": "grunt test -v"
+  },
   "contributors": [
     "alexander rusanov <alexander.rusanov@gmail.com>",
     "Hypercubed <hypercubed@gmail.com>",

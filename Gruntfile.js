@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     watch: {
       karma: {
         files: ['angular-toggle-switch.js', 'test/{,**/}*.js'],
-        tasks: ['karma:unit:run']
+        tasks: ['karma:unit']
       }
     },
 
@@ -21,7 +21,8 @@ module.exports = function (grunt) {
 
     karma: {
       unit: {
-        configFile: 'karma.conf.js'
+        configFile: 'karma.conf.js',
+        singleRun: true
       },
     },
 
@@ -59,6 +60,11 @@ module.exports = function (grunt) {
     'jshint:all',
     'ngmin',
     'uglify'
+  ]);
+
+  grunt.registerTask('test', [
+    'jshint:all',
+    'karma:unit'
   ]);
 
   grunt.registerTask('release', 'Bump the version', function(type) {
