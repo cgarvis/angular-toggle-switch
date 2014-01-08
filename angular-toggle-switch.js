@@ -10,7 +10,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       knobLabel: '@'
     },
 
-    template: '<div class="switch" ng-click="toggle()"><div ng-class="{\'switch-off\': !model, \'switch-on\': model}"><span class="switch-left" ng-bind-html-unsafe="onLabel">On</span><span class="knob" ng-bind="knobLabel">&nbsp;</span><span class="switch-right" ng-bind-html-unsafe="offLabel">Off</span></div></div>',
+    template: '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled }"><div ng-class="{\'switch-off\': !model, \'switch-on\': model}"><span class="switch-left" ng-bind-html-unsafe="onLabel">On</span><span class="knob" ng-bind="knobLabel">&nbsp;</span><span class="switch-right" ng-bind-html-unsafe="offLabel">Off</span></div></div>',
     link: function ($scope, element, attrs) {
       attrs.$observe('onLabel', function(val) {
         $scope.onLabel = angular.isDefined(val) ? val : 'On';
