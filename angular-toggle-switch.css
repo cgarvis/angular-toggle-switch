@@ -8,6 +8,10 @@
     min-width: 100px;
 }
 
+.switch.disabled > div > span.knob {
+    background: #AAA;
+}
+
 .switch span {
     cursor: pointer;
     display: inline-block;

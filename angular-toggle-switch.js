@@ -4,6 +4,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
     replace: true,
     scope: {
       model: '=',
+      disabled: '@',
       onLabel: '@',
       offLabel: '@',
       knobLabel: '@'
@@ -23,9 +24,15 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
         $scope.knobLabel = angular.isDefined(val) ? val : '\u00A0';
       });
 
+      attrs.$observe('disabled', function(disabled) {
+        $scope.disabled = disabled === 'true';
+      });
+
       $scope.toggle = function toggle() {
-        element.children().addClass('switch-animate');
-        $scope.model = !$scope.model;
+        if(!$scope.disabled) {
+          element.children().addClass('switch-animate');
+          $scope.model = !$scope.model;
+        }
       };
     }
   };
