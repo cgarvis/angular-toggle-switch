@@ -2,8 +2,9 @@ language: node_js
 node_js:
   - 0.10
 env:
-  - DISPLAY=:90.0
-  - KARMA_BROWSERS=Firefox
+  global:
+    - DISPLAY=:90.0
+    - KARMA_BROWSERS=Firefox
 before_script:
   - sh -e /etc/init.d/xvfb start
   - npm install -g grunt-cli bower
