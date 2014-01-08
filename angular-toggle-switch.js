@@ -23,22 +23,17 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
         $scope.knobLabel = angular.isDefined(val) ? val : '\u00A0';
       });
       attrs.$observe('disabled', function(disabled) {
-         if(disabled && $scope.model) {
-             $scope.toggle();
-         }
-      });
-      $scope.$watch('enabled', function(enabled) {
-          if(!enabled && $scope.editable && $scope.model) {
-             $scope.toggle();
-          }
+        if(disabled && $scope.model) {
+          $scope.toggle();
+        }
       });
       $scope.toggle = function toggle() {
-          if(!$scope.disabled) {
-              element.children().addClass('switch-animate');
-              $scope.model = !$scope.model;
-          } else {
-              $scope.model = false;
-          }
+        if(!$scope.disabled) {
+          element.children().addClass('switch-animate');
+          $scope.model = !$scope.model;
+        } else {
+          $scope.model = false;
+        }
       };
     }
   };
