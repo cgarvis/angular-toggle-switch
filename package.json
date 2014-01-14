@@ -42,6 +42,7 @@
     "test": "grunt test -v"
   },
   "contributors": [
+    "Martin Maestri <mmaestri@gmail.com>",
     "alexander rusanov <alexander.rusanov@gmail.com>",
     "Hypercubed <hypercubed@gmail.com>",
     "Shinework <adrien.baptiste@gmail.com>"
