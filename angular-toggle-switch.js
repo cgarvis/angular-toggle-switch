@@ -24,7 +24,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       });
 
       attrs.$observe('disabled', function(val) {
-        $scope.disabled = angular.isDefined(val) ? true : false
+        $scope.disabled = angular.isDefined(val) ? true : false;
       });
 
       $scope.toggle = function toggle() {
