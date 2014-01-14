@@ -23,8 +23,8 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
         $scope.knobLabel = angular.isDefined(val) ? val : '\u00A0';
       });
 
-      attrs.$observe('disabled', function(disabled) {
-        $scope.disabled = disabled === 'true';
+      attrs.$observe('disabled', function(val) {
+        $scope.disabled = angular.isDefined(val) ? true : false
       });
 
       $scope.toggle = function toggle() {
