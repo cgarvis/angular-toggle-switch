@@ -19,34 +19,17 @@ Load `angular-toggle-switch.min.js` then add the `toggle-switch` module to your 
 angular.module('app', ['toggle-switch']);
 ```
 
-## Usage
+See [demo](http://cgarvis.github.io/angular-toggle-switch) for usage.
 
-```html
-<toggle-switch model="switchStatus"></toggle-switch>
-```
-
-or
-
-```html
-<div toggle-switch model="switchStatus"></div>
-```
-
-### Custom Labels
-```html
-<toggle-switch model="switchStatus" on-label="True" off-label="False"></toggle-switch>
-```
-
-Development
-----------
+## Development
 
 Testing is done using Karma Test Runner.
 
 ```bash
-$ grunt karma:unit
+$ grunt test
 ```
 
-Release
--------
+## Release
 
 ```bash
 $ grunt release
