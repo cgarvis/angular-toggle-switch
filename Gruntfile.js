@@ -15,7 +15,7 @@ module.exports = function (grunt) {
         commitMessage: 'chore: release v%VERSION%',
         commitFiles: ['package.json', 'bower.json', 'angular-toggle-switch.min.js'],
         files: ['package.json', 'bower.json'],
-        pushTo: 'master'
+        pushTo: 'origin'
       }
     },
 
