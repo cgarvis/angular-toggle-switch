@@ -1,7 +1,10 @@
 {
   "name": "angular-toggle-switch",
   "version": "0.3.0",
-  "main": "angular-toggle-switch.min.js",
+  "main": [
+    "angular-toggle-switch.js",
+    "angular-toggle-switch.css"
+  ],
   "homepage": "http://cgarvis.github.io/angular-toggle-switch/",
   "repository": {
     "type": "git",
