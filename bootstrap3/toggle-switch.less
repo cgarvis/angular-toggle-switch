@@ -1,0 +1,110 @@
+.form-control-hover(@color: @input-border-focus) {
+  @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+  &:hover {
+    border-color: @color;
+    outline: 0;
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @{color-rgba}");
+  }
+}
+
+.switch {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: @border-radius-base;
+  border: 1px solid;
+  border-color: @btn-default-border;
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  line-height: 8px;
+  .user-select(none);
+  vertical-align: middle;
+  min-width: 100px;
+  .form-control-hover();
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+  .knob {
+    border-right: none;
+    border-left: none;
+    text-align: center;
+    margin-top: -1px;
+    margin-bottom: -1px;
+    z-index: 100;
+    background: @btn-default-bg;
+
+    // TODO allow html in knob-label
+    // i {
+    //   color: #000;
+    //   text-shadow: 0 1px 0 #fff;
+    //   line-height: 18px;
+    //   pointer-events: none;
+    // }
+  }
+
+  span {
+    &.switch-left {
+      color: #fff;
+      background: @btn-primary-bg;
+    }
+
+    &.switch-right {
+      color: #000;
+      background: @gray-lighter;
+    }
+  }
+
+  &.switch-primary {
+    span {
+      &.switch-left {
+        color: #fff;
+        background: @btn-primary-bg;
+      }
+    }
+
+  }
+
+  &.switch-info {
+    span {
+      &.switch-left {
+        color: #fff;
+        background: @btn-info-bg;
+      }
+    }
+  }
+
+  &.switch-success {
+    span {
+      &.switch-left {
+        color: #fff;
+        background: @btn-success-bg;
+      }
+    }
+  }
+
+  &.switch-warning {
+    span {
+      &.switch-left {
+        background: @btn-warning-bg;
+        color: #fff;
+      }
+    }
+  }
+
+  &.switch-danger {
+    span {
+      &.switch-left {
+        color: #fff;
+        background: @btn-danger-bg;
+      }
+    }
+  }
+
+  &.switch-default {
+    span {
+      &.switch-left {
+        color: #000;
+        background: @gray-lighter;
+      }
+    }
+  }
+}
