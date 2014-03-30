@@ -21,6 +21,10 @@ angular.module('app', ['toggle-switch']);
 
 See [demo](http://cgarvis.github.io/angular-toggle-switch) for usage.
 
+## Less
+
+If you want to use your bootstrap variables, include toggle-switch.less in your compilation stack. You can even choose among Bootstrap versions 2 or 3.. compatible source.
+
 ## Development
 
 Testing is done using Karma Test Runner.
