@@ -55,7 +55,7 @@
   color: #333;
   background: #f0f0f0;
 }
-.switch-animate {
+.switch .switch-animate {
   transition: left 0.5s;
   -o-transition: left 0.5s;
   -moz-transition: left 0.5s;
@@ -127,12 +127,4 @@
 .switch.switch-default span.switch-left {
   color: #000;
   background: #eeeeee;
-}
-.switch.switch-danger span.switch-left {
-  color: #fff;
-  background: #d9534f;
-}
-.switch.switch-danger span.switch-left {
-  color: #fff;
-  background: #d9534f;
 }

@@ -20,11 +20,9 @@ module.exports = function (grunt) {
     },
 
     less: {
-
-      files: {
-        src: ['bootstrap3/angular-toggle-switch-bootstrap-3.less'],
-        dest: 'bootstrap3/angular-toggle-switch-bootstrap-3.css'
-      }
+      'style/default/angular-toggle-switch.css': ['style/default/angular-toggle-switch.less'],
+      'style/bootstrap2/angular-toggle-switch-bootstrap-2.css': ['style/bootstrap2/angular-toggle-switch-bootstrap-2.less'],
+      'style/bootstrap3/angular-toggle-switch-bootstrap-3.css': ['style/bootstrap3/angular-toggle-switch-bootstrap-3.less']
     },
 
     karma: {
@@ -68,7 +66,7 @@ module.exports = function (grunt) {
     'jshint:all',
     'ngmin',
     'uglify',
-    'less',
+    'less'
   ]);
 
   grunt.registerTask('test', [
