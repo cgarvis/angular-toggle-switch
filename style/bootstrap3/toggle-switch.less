@@ -32,13 +32,63 @@
     z-index: 100;
     background: @btn-default-bg;
 
-    // TODO allow html in knob-label
-    // i {
-    //   color: #000;
-    //   text-shadow: 0 1px 0 #fff;
-    //   line-height: 18px;
-    //   pointer-events: none;
-    // }
+    // TODO allow html
+    i {
+      color: #000;
+      text-shadow: 0 1px 0 #fff;
+      line-height: 18px;
+      pointer-events: none;
+    }
+  }
+
+  &.switch-mini {
+    min-width: 72px;
+
+    .switch-left,
+    .switch-right,
+    .knob {
+      padding-bottom: 4px;
+      padding-top: 4px;
+      font-size: 10px;
+      line-height: 9px;
+    }
+
+    // TODO allow html
+    i.switch-mini-icons {
+      height: 1.20em;
+      line-height: 9px;
+      vertical-align: text-top;
+      text-align: center;
+      transform: scale(0.6);
+      margin-top: -1px;
+      margin-bottom: -1px;
+    }
+  }
+
+  &.switch-small {
+    min-width: 80px;
+
+    .switch-left,
+    .switch-right,
+    .knob {
+      padding-bottom: 3px;
+      padding-top: 3px;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  &.switch-large {
+    min-width: 120px;
+
+    .switch-left,
+    .switch-right,
+    .knob {
+      padding-bottom: 9px;
+      padding-top: 9px;
+      font-size: 16px;
+      line-height: normal;
+    }
   }
 
   span {

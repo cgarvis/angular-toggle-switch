@@ -96,6 +96,54 @@
   z-index: 100;
   background: #ffffff;
 }
+.switch .knob i {
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  line-height: 18px;
+  pointer-events: none;
+}
+.switch.switch-mini {
+  min-width: 72px;
+}
+.switch.switch-mini .switch-left,
+.switch.switch-mini .switch-right,
+.switch.switch-mini .knob {
+  padding-bottom: 4px;
+  padding-top: 4px;
+  font-size: 10px;
+  line-height: 9px;
+}
+.switch.switch-mini i.switch-mini-icons {
+  height: 1.20em;
+  line-height: 9px;
+  vertical-align: text-top;
+  text-align: center;
+  transform: scale(0.6);
+  margin-top: -1px;
+  margin-bottom: -1px;
+}
+.switch.switch-small {
+  min-width: 80px;
+}
+.switch.switch-small .switch-left,
+.switch.switch-small .switch-right,
+.switch.switch-small .knob {
+  padding-bottom: 3px;
+  padding-top: 3px;
+  font-size: 12px;
+  line-height: 18px;
+}
+.switch.switch-large {
+  min-width: 120px;
+}
+.switch.switch-large .switch-left,
+.switch.switch-large .switch-right,
+.switch.switch-large .knob {
+  padding-bottom: 9px;
+  padding-top: 9px;
+  font-size: 16px;
+  line-height: normal;
+}
 .switch span.switch-left {
   color: #fff;
   background: #428bca;
