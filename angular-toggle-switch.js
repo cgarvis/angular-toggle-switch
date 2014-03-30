@@ -28,7 +28,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function ($com
       return function postLink(scope, iElement, iAttrs, controller) {
 
         var bindSpan = function (span, html) {
-          var span = angular.element(span);
+          span = angular.element(span);
           var bindAttributeName = (html === true) ? 'ng-bind-html' : 'ng-bind';
 
           // remove old ng-bind attributes
@@ -45,7 +45,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function ($com
           $compile(span)(scope, function(cloned, scope) {
             span.replaceWith(cloned);
           });
-        }
+        };
 
         // add ng-bind attribute to each span element.
         // NOTE: you need angular-sanitize to use ng-bind-html
@@ -53,13 +53,13 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function ($com
           angular.forEach(iElement[0].children[0].children, function (span, index) {
             bindSpan(span, html);
           });
-        }
+        };
 
         scope.$watch('html', function (newValue) {
           bindSwitch(iElement, newValue);
-        })
+        });
 
-      }
+      };
     }
   };
 });
