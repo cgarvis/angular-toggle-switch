@@ -7,8 +7,15 @@
   line-height: 8px;
   min-width: 100px;
 }
-.switch.disabled > div > span.knob {
-  background: #AAA;
+.switch.disabled {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  cursor: default !important;
+}
+.switch.disabled .switch-left,
+.switch.disabled .switch-right,
+.switch.disabled .knob {
+  cursor: default !important;
 }
 .switch span {
   cursor: pointer;

@@ -1,3 +1,11 @@
+// Opacity
+.opacity-bs3(@opacity) {
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  filter: ~"alpha(opacity=@{opacity-ie})";
+}
+
 .switch {
     border: 1px solid;
     cursor: pointer;
@@ -7,8 +15,15 @@
     line-height: 8px;
     min-width: 100px;
 
-    &.disabled > div > span.knob {
-        background: #AAA;
+    &.disabled {
+        .opacity-bs3(.5);
+        cursor: default !important;
+
+        .switch-left,
+        .switch-right,
+        .knob {
+            cursor: default !important;
+        }
     }
 
     span {
