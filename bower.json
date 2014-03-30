@@ -3,7 +3,7 @@
   "version": "0.3.0",
   "main": [
     "angular-toggle-switch.js",
-    "angular-toggle-switch.css"
+    "style/bootstrap3/angular-toggle-switch-bootstrap-3.css"
   ],
   "homepage": "http://cgarvis.github.io/angular-toggle-switch/",
   "repository": {
