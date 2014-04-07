@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Example</title>
+  <link href="../style/bootstrap3/angular-toggle-switch-bootstrap-3.css" media="all" rel="stylesheet" type="text/css">
+  <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css">
+  
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular-sanitize.js"></script>
+  
+  <script type="text/javascript" src="../angular-toggle-switch.js"></script>
+  <script type="text/javascript">
+    angular.module('app', ['ngSanitize', 'toggle-switch']);
+  </script>
+</head>
+<body>
+
+  <p>
+    <div toggle-switch class="switch-primary" model="switchStatus"></div>
+    <div toggle-switch class="switch-info" model="switchStatus"></div>
+    <div toggle-switch class="switch-success" model="switchStatus"></div>
+    <div toggle-switch class="switch-warning" model="switchStatus"></div>
+    <div toggle-switch class="switch-danger" model="switchStatus"></div>
+    <div toggle-switch class="switch-default" model="switchStatus"></div>
+  </p>
+  
+  <p>
+    <div toggle-switch class="switch-large switch-primary" model="switchStatus"></div>
+    <div toggle-switch class="switch-primary" model="switchStatus"></div>
+    <div toggle-switch class="switch-small switch-primary" model="switchStatus"></div>
+    <div toggle-switch class="switch-mini switch-primary" model="switchStatus"></div>
+  </p>
+
+  <p>
+    <div toggle-switch class="switch-primary" disabled="disabled" model="switchStatus"></div>
+  </p>
+
+  <p ng-init="htmlSwitchStatus = true">
+    <div toggle-switch class="switch-primary switch-large" html="true" knob-label="HTML" on-label='<i class="fa fa-thumbs-up"></i>' off-label='<i class="fa fa-thumbs-down"></i>' model="htmlSwitchStatus"></div>
+    <div toggle-switch class="switch-primary switch-large" html="htmlSwitchStatus" knob-label='<i class="fa fa-question"></i>' on-label='<i class="fa fa-thumbs-up"></i>' off-label='<i class="fa fa-thumbs-down"></i>' model="switchStatus"></div>
+  </p>
+</body>
+</html>

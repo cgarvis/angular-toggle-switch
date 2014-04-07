@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Example</title>
+  <link href="../style/bootstrap2/angular-toggle-switch-bootstrap-2.css" media="all" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script type="text/javascript" src="../angular-toggle-switch.js"></script>
+  <script type="text/javascript">
+    angular.module('app', ['toggle-switch']);
+  </script>
+</head>
+<body>
+
+  <p>
+    <div toggle-switch class="switch-primary" model="switchStatus"></div>
+    <div toggle-switch class="switch-info" model="switchStatus"></div>
+    <div toggle-switch class="switch-success" model="switchStatus"></div>
+    <div toggle-switch class="switch-warning" model="switchStatus"></div>
+    <div toggle-switch class="switch-danger" model="switchStatus"></div>
+    <div toggle-switch class="switch-default" model="switchStatus"></div>
+  </p>
+
+  <p>
+    <div toggle-switch class="switch-primary" disabled="disabled" model="switchStatus"></div>
+  </p>
+
+</body>
+</html>

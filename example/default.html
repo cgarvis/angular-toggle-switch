@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+  <title>Example</title>
+  <link href="../style/default/angular-toggle-switch.css" media="all" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+  <script type="text/javascript" src="../angular-toggle-switch.js"></script>
+  <script type="text/javascript">
+    angular.module('app', ['toggle-switch']);
+  </script>
+</head>
+<body>
+  <div toggle-switch model="switchStatus"></div>
+  <div toggle-switch class="switch-primary" disabled="disabled" model="switchStatus"></div>
+</body>
+</html>

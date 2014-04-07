@@ -1,0 +1,84 @@
+.switch {
+  display: inline-block;
+  cursor: pointer;
+  .border-radius(5px);
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  position: relative;
+  text-align: left;
+  overflow: hidden;
+  line-height: 8px;
+  .user-select(none);
+  vertical-align: middle;
+  min-width: 100px;
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+
+  .knob {
+    text-align: center;
+    z-index: 100;
+    width: 34%;
+    border-left: 1px solid @btnBorder;
+    border-right: 1px solid @btnBorder;
+    .buttonBackground(@btnBackground, @btnBackgroundHighlight, @grayDark);
+  }
+
+  span {
+    &.switch-left {
+      .border-left-radius(4px);
+    }
+
+    &.switch-right {
+      .buttonBackground(@btnBackgroundHighlight, @btnBackground, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+    }
+  }
+
+  &.switch-primary {
+    span {
+      &.switch-left {
+        .buttonBackground(@btnPrimaryBackgroundHighlight, @btnPrimaryBackground);
+      }
+    }
+
+  }
+
+  &.switch-info {
+    span {
+      &.switch-left {
+        .buttonBackground(@btnInfoBackgroundHighlight, @btnInfoBackground);
+      }
+    }
+  }
+
+  &.switch-success {
+    span {
+      &.switch-left {
+        .buttonBackground(@btnSuccessBackgroundHighlight, @btnSuccessBackground);
+      }
+    }
+  }
+
+  &.switch-warning {
+    span {
+      &.switch-left {
+        .buttonBackground(@btnWarningBackgroundHighlight, @btnWarningBackground);
+      }
+    }
+  }
+
+  &.switch-danger {
+    span {
+      &.switch-left {
+        .buttonBackground(@btnDangerBackgroundHighlight, @btnDangerBackground);
+      }
+    }
+  }
+
+  &.switch-default {
+    span {
+      &.switch-left {
+        .buttonBackground(@btnBackgroundHighlight, @btnBackground, @grayDark, 0 1px 1px rgba(255,255,255,.75));
+      }
+    }
+  }
+
+}

@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     watch: {
       karma: {
-        files: ['angular-toggle-switch.js', 'test/{,**/}*.js'],
+        files: ['angular-toggle-switch.js', 'test/{,**/}*.js', 'bootstrap3/*.less'],
         tasks: ['karma:unit']
       }
     },
@@ -17,6 +17,12 @@ module.exports = function (grunt) {
         files: ['package.json', 'bower.json'],
         pushTo: 'origin'
       }
+    },
+
+    less: {
+      'style/default/angular-toggle-switch.css': ['style/default/angular-toggle-switch.less'],
+      'style/bootstrap2/angular-toggle-switch-bootstrap-2.css': ['style/bootstrap2/angular-toggle-switch-bootstrap-2.less'],
+      'style/bootstrap3/angular-toggle-switch-bootstrap-3.css': ['style/bootstrap3/angular-toggle-switch-bootstrap-3.less']
     },
 
     karma: {
@@ -59,7 +65,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'jshint:all',
     'ngmin',
-    'uglify'
+    'uglify',
+    'less'
   ]);
 
   grunt.registerTask('test', [
