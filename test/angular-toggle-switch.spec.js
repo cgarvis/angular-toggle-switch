@@ -5,7 +5,7 @@ describe('Toggle Switch', function() {
   var onLabelTemplate = '<toggle-switch model="switchState" on-label="CUSTOM-ON">\n</toggle-switch>';
   var offLabelTemplate = '<toggle-switch model="switchState" off-label="CUSTOM-OFF">\n</toggle-switch>';
   var knobLabelTemplate = '<toggle-switch model="switchState" knob-label="CUSTOM">\n</toggle-switch>';
-  var htmlLabelsTemplate = '<toggle-switch model="switchState" on-label="<i class=\'icon-ok icon-white\'></i>" off-label="<i class=\'icon-remove\'></i>">\n</toggle-switch>';
+  var htmlLabelsTemplate = '<toggle-switch model="switchState" html="true" on-label="<i class=\'icon-ok icon-white\'></i>" off-label="<i class=\'icon-remove\'></i>">\n</toggle-switch>';
   var disabledTemplate = '<toggle-switch model="switchState" disabled="isDisabled">\n</toggle-switch>';
 
   // Load up just our module
@@ -80,13 +80,12 @@ describe('Toggle Switch', function() {
   });
 
   describe('when there is a custom `on-label`', function () {
-    // @TODO: figure out how to deal with html in Angular 1.2
-    //describe('is html', function() {
-    //  it('sets the on label', function() {
-    //    var elm = compileDirective(htmlLabelsTemplate, $scope);
-    //    expect(elm.html()).toContain('<i class="icon-ok icon-white"></i>');
-    //  });
-    //});
+    describe('is html', function() {
+      it('sets the on label', function() {
+        var elm = compileDirective(htmlLabelsTemplate, $scope);
+        expect(elm.html()).toContain('<i class="icon-ok icon-white"></i>');
+      });
+    });
 
     describe('is string', function() {
       it('sets the on label', function() {
@@ -97,13 +96,12 @@ describe('Toggle Switch', function() {
   });
 
   describe('when there is a custom `off-label`', function () {
-    // @TODO: figure out how to deal with html in Angular 1.2
-    //describe('is html', function() {
-    //  it('sets the on label', function() {
-    //    var elm = compileDirective(htmlLabelsTemplate, $scope);
-    //    expect(elm.html()).toContain('<i class="icon-remove"></i>');
-    //  });
-    //});
+    describe('is html', function() {
+      it('sets the on label', function() {
+        var elm = compileDirective(htmlLabelsTemplate, $scope);
+        expect(elm.html()).toContain('<i class="icon-remove"></i>');
+      });
+    });
 
     describe('is string', function() {
       it('sets the on label', function() {

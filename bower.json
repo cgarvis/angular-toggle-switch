@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "angular": ">=1.0",
+    "angular-sanitize": ">=1.0",
     "angular-mocks": ">=1.0"
   },
   "ignore": [
