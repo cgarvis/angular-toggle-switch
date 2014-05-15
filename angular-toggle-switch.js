@@ -1,6 +1,7 @@
-angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function ($compile) {
+angular.module('toggle-switch', ['ng', 'ngSanitize']).directive('toggleSwitch', function ($compile) {
   return {
     restrict: 'EA',
+    replace: true,
     scope: {
       model: '=',
       disabled: '@',
@@ -9,6 +10,8 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function ($com
       knobLabel: '@',
       html: '@'
     },
+    template: '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled }">' +
+      '</div>',
     controller: function($scope) {
       $scope.toggle = function toggle() {
         if(!$scope.disabled) {
@@ -16,7 +19,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function ($com
         }
       };
     },
-    link: function(scope,element, attrs) {
+    link: function(scope, element, attrs) {
       if (!attrs.onLabel) { attrs.onLabel = 'On'; }
       if (!attrs.offLabel) { attrs.offLabel = 'Off'; }
       if (!attrs.knobLabel) { attrs.knobLabel = '\u00a0'; }
@@ -25,15 +28,14 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function ($com
 
       var bindMethod = attrs.html ? 'ng-bind-html' : 'ng-bind';
 
-      var template= '<div class="switch" ng-click="toggle()" ng-class="{ \'disabled\': disabled }">' +
-            '<div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
+      var innerTemplate = '<div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
               '<span class="switch-left" '+bindMethod+'="onLabel"></span>' +
               '<span class="knob" '+bindMethod+'="knobLabel"></span>' +
               '<span class="switch-right" '+bindMethod+'="offLabel"></span>' +
-            '</div>' +
-          '</div>';
-      var e = $compile(template)(scope);
-      element.html(e.html());
+            '</div>' ;
+
+      element.html(innerTemplate);
+      $compile(element.contents())(scope);
     },
   };
 });
