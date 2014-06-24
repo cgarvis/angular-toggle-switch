@@ -55,7 +55,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
 						}
 					};
 				}
-			}
+			};
 		}
 	};
 });
