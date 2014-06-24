@@ -1,6 +1,6 @@
 module.exports = function (grunt) {
-  // load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  // load all grunt tasks automatically
+	require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
     watch: {
@@ -23,7 +23,7 @@ module.exports = function (grunt) {
       unit: {
         configFile: 'karma.conf.js',
         singleRun: true
-      },
+      }
     },
 
     jshint: {
@@ -53,10 +53,24 @@ module.exports = function (grunt) {
           'angular-toggle-switch.min.js': ['angular-toggle-switch.min.js']
         }
       }
-    }
+    },
+		less: {
+			options: {
+				relativeUrls: true
+			},
+			serve: {
+				files: [
+					{
+						src: 'src/less/bootstrap3/build.less',
+						dest: 'angular-toggle-switch-bootstrap.css'
+					}
+				]
+			}
+		}
   });
 
   grunt.registerTask('build', [
+    'less',
     'jshint:all',
     'ngmin',
     'uglify'
