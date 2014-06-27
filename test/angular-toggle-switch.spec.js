@@ -7,7 +7,6 @@ describe('Toggle Switch', function() {
   var knobLabelTemplate = '<toggle-switch model="switchState" knob-label="CUSTOM">\n</toggle-switch>';
   var htmlLabelsTemplate = '<toggle-switch model="switchState" on-label="<i class=\'icon-ok icon-white\'></i>" off-label="<i class=\'icon-remove\'></i>">\n</toggle-switch>';
   var disabledTemplate = '<toggle-switch model="switchState" disabled="isDisabled">\n</toggle-switch>';
-  var afterToggleTemplate = '<toggle-switch model="switchState" after-toggle="afterToggle()">\n</toggle-switch>';
 
   // Load up just our module
   beforeEach(module('toggle-switch'));
@@ -25,7 +24,7 @@ describe('Toggle Switch', function() {
     scope.$apply();
     return elm;
   }
-  
+
   describe('default labels', function() {
     var elm;
 
@@ -46,6 +45,7 @@ describe('Toggle Switch', function() {
     it('changes model to true when clicked', function() {
       var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
+      $scope.$apply();
       expect($scope.switchState).toEqual(true);
     });
   });
@@ -61,6 +61,7 @@ describe('Toggle Switch', function() {
     it('changes model to false when clicked', function() {
       var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
+      $scope.$apply();
       expect($scope.switchState).toEqual(false);
     });
   });
@@ -76,6 +77,7 @@ describe('Toggle Switch', function() {
     it('changes model to true when clicked', function() {
       var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
+      $scope.$apply();
       expect($scope.switchState).toEqual(true);
     });
   });
@@ -130,15 +132,4 @@ describe('Toggle Switch', function() {
       expect($scope.switchState).toEqual(true);
     });
   });
-  
-  describe('when toggle action completes', function(){
-    it('triggers callback', function(){
-      $scope.afterToggle = function(){};
-      var elm = compileDirective(afterToggleTemplate, $scope);
-      spyOn($scope, 'afterToggle');
-      elm.triggerHandler('click');
-      expect($scope.afterToggle).toHaveBeenCalled();
-    });
-  });
-
 });
