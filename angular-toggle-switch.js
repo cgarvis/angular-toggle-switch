@@ -21,7 +21,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
 		'</div>',
 		compile: function () {
 			return {
-				pre: function preLink(scope, iElement, iAttrs){
+				pre: function preLink(scope, iElement, iAttrs) {
 					if (!iAttrs.onLabel) {
 						iAttrs.onLabel = 'On';
 					}
@@ -42,8 +42,8 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
 					}
 				},
 				post: function postLink(scope, element, attrs, ngModelCtrl) {
-					if(typeof ngModelCtrl.$modelValue !== 'boolean'){
-						ngModelCtrl.$setViewValue(false);
+					if (typeof ngModelCtrl.$modelValue !== 'boolean') {
+						ngModelCtrl.$setViewValue((typeof scope.ngModel === 'boolean') ? scope.ngModel : false);
 						ngModelCtrl.$setPristine();
 						ngModelCtrl.$render();
 					}
