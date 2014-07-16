@@ -45,6 +45,7 @@ describe('Toggle Switch', function() {
     it('changes model to true when clicked', function() {
       var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
+      $scope.$apply();
       expect($scope.switchState).toEqual(true);
     });
   });
@@ -60,6 +61,7 @@ describe('Toggle Switch', function() {
     it('changes model to false when clicked', function() {
       var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
+      $scope.$apply();
       expect($scope.switchState).toEqual(false);
     });
   });
@@ -75,6 +77,7 @@ describe('Toggle Switch', function() {
     it('changes model to true when clicked', function() {
       var elm = compileDirective(baseTemplate, $scope);
       elm.triggerHandler('click');
+      $scope.$apply();
       expect($scope.switchState).toEqual(true);
     });
   });
@@ -129,5 +132,4 @@ describe('Toggle Switch', function() {
       expect($scope.switchState).toEqual(true);
     });
   });
-
 });
