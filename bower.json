@@ -1,6 +1,6 @@
 {
   "name": "angular-toggle-switch",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": [
     "angular-toggle-switch.js",
     "angular-toggle-switch.css"
