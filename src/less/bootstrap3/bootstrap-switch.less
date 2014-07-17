@@ -1,6 +1,6 @@
-@bootstrap-switch-base: bootstrap-switch;
+@toggle-switch-base: toggle-switch;
 
-.@{bootstrap-switch-base} {
+.@{toggle-switch-base} {
   display: inline-block;
   cursor: pointer;
   border-radius: @border-radius-base;
@@ -15,12 +15,12 @@
   min-width: 100px;
   .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
 
-  &.@{bootstrap-switch-base}-mini {
+  &.@{toggle-switch-base}-xs {
     min-width: 71px;
 
-    .@{bootstrap-switch-base}-handle-on,
-    .@{bootstrap-switch-base}-handle-off,
-    .@{bootstrap-switch-base}-label {
+    .@{toggle-switch-base}-handle-on,
+    .@{toggle-switch-base}-handle-off,
+    .@{toggle-switch-base}-label {
       padding-bottom: 4px;
       padding-top: 4px;
       font-size: 10px;
@@ -28,12 +28,12 @@
     }
   }
 
-  &.@{bootstrap-switch-base}-small {
+  &.@{toggle-switch-base}-sm {
     min-width: 79px;
 
-    .@{bootstrap-switch-base}-handle-on,
-    .@{bootstrap-switch-base}-handle-off,
-    .@{bootstrap-switch-base}-label {
+    .@{toggle-switch-base}-handle-on,
+    .@{toggle-switch-base}-handle-off,
+    .@{toggle-switch-base}-label {
       padding-bottom: 3px;
       padding-top: 3px;
       font-size: 12px;
@@ -41,12 +41,12 @@
     }
   }
 
-  &.@{bootstrap-switch-base}-large {
+  &.@{toggle-switch-base}-lg {
     min-width: 120px;
 
-    .@{bootstrap-switch-base}-handle-on,
-    .@{bootstrap-switch-base}-handle-off,
-    .@{bootstrap-switch-base}-label {
+    .@{toggle-switch-base}-handle-on,
+    .@{toggle-switch-base}-handle-off,
+    .@{toggle-switch-base}-label {
       padding-bottom: 9px;
       padding-top: 9px;
       font-size: 16px;
@@ -54,63 +54,44 @@
     }
   }
 
-  &.@{bootstrap-switch-base}-animate {
+  &.@{toggle-switch-base}-animate {
 
-    .@{bootstrap-switch-base}-container {
+    .@{toggle-switch-base}-container {
       .transition(margin-left 0.5s);
     }
   }
 
-  &.@{bootstrap-switch-base}-on {
+  &.@{toggle-switch-base}-on {
 
-    .@{bootstrap-switch-base}-container {
+    .@{toggle-switch-base}-container {
       margin-left: 0%;
     }
 
-    .@{bootstrap-switch-base}-label {
+    .@{toggle-switch-base}-label {
       .border-right-radius(@border-radius-base - 1);
     }
   }
 
-  &.@{bootstrap-switch-base}-off {
+  &.@{toggle-switch-base}-off {
 
-    .@{bootstrap-switch-base}-container {
+    .@{toggle-switch-base}-container {
       margin-left: -50%;
     }
 
-    .@{bootstrap-switch-base}-label {
+    .@{toggle-switch-base}-label {
       .border-left-radius(@border-radius-base - 1);
     }
   }
 
-  &.@{bootstrap-switch-base}-indeterminate {
+  &.@{toggle-switch-base}-indeterminate {
 
-    .@{bootstrap-switch-base}-container {
+    .@{toggle-switch-base}-container {
       margin-left: -25%;
     }
   }
 
-  &.@{bootstrap-switch-base}-disabled,
-  &.@{bootstrap-switch-base}-readonly,
-  &.@{bootstrap-switch-base}-indeterminate {
-    .opacity(.5);
-    cursor: default !important;
 
-    .@{bootstrap-switch-base}-handle-on,
-    .@{bootstrap-switch-base}-handle-off,
-    .@{bootstrap-switch-base}-label {
-      cursor: default !important;
-    }
-  }
-
-  &.@{bootstrap-switch-base}-focused {
-    @color-rgba: rgba(red(@input-border-focus), green(@input-border-focus), blue(@input-border-focus), .6);
-    border-color: @input-border-focus;
-    outline: 0;
-    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @{color-rgba}");
-  }
-
-  .@{bootstrap-switch-base}-container {
+  .@{toggle-switch-base}-container {
     display: inline-block;
     width: 150%;
     top: 0;
@@ -118,9 +99,9 @@
     .translate3d(0, 0, 0);
   }
 
-  .@{bootstrap-switch-base}-handle-on,
-  .@{bootstrap-switch-base}-handle-off,
-  .@{bootstrap-switch-base}-label {
+  .@{toggle-switch-base}-handle-on,
+  .@{toggle-switch-base}-handle-off,
+  .@{toggle-switch-base}-label {
     .box-sizing(border-box);
     cursor: pointer;
     display: inline-block !important;
@@ -131,52 +112,57 @@
     line-height: 20px;
   }
 
-  .@{bootstrap-switch-base}-handle-on,
-  .@{bootstrap-switch-base}-handle-off {
+  .@{toggle-switch-base}-handle-on,
+  .@{toggle-switch-base}-handle-off {
     text-align: center;
     z-index: 1;
     width: 33.333333333%;
 
-    &.@{bootstrap-switch-base}-primary {
+    &.@{toggle-switch-base}-default {
+      color: #000;
+      background: @gray-light;
+    }
+
+    &.@{toggle-switch-base}-primary {
       color: #fff;
       background: @btn-primary-bg;
     }
 
-    &.@{bootstrap-switch-base}-info {
+    &.@{toggle-switch-base}-info {
       color: #fff;
       background: @btn-info-bg;
     }
 
-    &.@{bootstrap-switch-base}-success {
+    &.@{toggle-switch-base}-success {
       color: #fff;
       background: @btn-success-bg;
     }
 
-    &.@{bootstrap-switch-base}-warning {
+    &.@{toggle-switch-base}-warning {
       background: @btn-warning-bg;
       color: #fff;
     }
 
-    &.@{bootstrap-switch-base}-danger {
+    &.@{toggle-switch-base}-danger {
       color: #fff;
       background: @btn-danger-bg;
     }
 
-    &.@{bootstrap-switch-base}-default {
+    &.@{toggle-switch-base}-default {
       color: #000;
       background: @gray-lighter;
     }
   }
 
-  .@{bootstrap-switch-base}-handle-on {
+  .@{toggle-switch-base}-handle-on {
     .border-left-radius(@border-radius-base - 1);
   }
 
-  .@{bootstrap-switch-base}-handle-off {
+  .@{toggle-switch-base}-handle-off {
     .border-right-radius(@border-radius-base - 1);
   }
 
-  .@{bootstrap-switch-base}-label {
+  .@{toggle-switch-base}-label {
     text-align: center;
     margin-top: -1px;
     margin-bottom: -1px;
@@ -186,16 +172,12 @@
     background: @btn-default-bg;
   }
 
-  input[type='radio'],
-  input[type='checkbox'] {
-    position: absolute !important;
-    top: 0;
-    left: 0;
-    .opacity(0);
-    z-index: -1;
-
-    &.form-control {
-      height: auto;
-    }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    pointer-events: none; // Future-proof disabling of clicks
+    .opacity(.65);
+    .box-shadow(none);
   }
 }
