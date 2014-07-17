@@ -4,13 +4,18 @@ describe('Toggle Switch', function () {
 	var template = {
 		base: '<toggle-switch ng-model="switchState"></toggle-switch>',
 		'onLabel': '<toggle-switch ng-model="switchState" on-label="Yes"></toggle-switch>',
+		'xs': '<toggle-switch ng-model="switchState" class="toggle-switch-xs"></toggle-switch>',
+		'sm': '<toggle-switch ng-model="switchState" class="toggle-switch-sm"></toggle-switch>',
+		'lg': '<toggle-switch ng-model="switchState" class="toggle-switch-lg"></toggle-switch>',
 		'offLabel': '<toggle-switch ng-model="switchState" off-label="No"></toggle-switch>',
 		'knobLabel': '<toggle-switch ng-model="switchState" knob-label="Click"></toggle-switch>',
-		'disabled': '<toggle-switch ng-model="switchState" disabled="isDisabled"></toggle-switch>'
+		'onClass': '<toggle-switch ng-model="switchState" on-class="Click"></toggle-switch>',
+		'offClass': '<toggle-switch ng-model="switchState" off-class="Click"></toggle-switch>',
+		'disabled': '<toggle-switch ng-model="switchState" ng-disabled="isDisabled"></toggle-switch>'
 	};
 
 	// Load up just our module
-	beforeEach(module('toggle-switch'));
+	beforeEach(module('gc.bootstrap'));
 
 	beforeEach(inject(function ($rootScope, _$compile_) {
 		// Get an isolated scope
@@ -80,6 +85,27 @@ describe('Toggle Switch', function () {
 		});
 	});
 
+	describe('when there is a class of `toggle-switch-xs`', function () {
+		it('is xs sized', function () {
+			var elm = compileDirective(template.xs, $scope);
+			expect(elm.hasClass('toggle-switch-xs')).toEqual(true);
+		});
+	});
+
+	describe('when there is a class of `toggle-switch-sm`', function () {
+		it('is xs sized', function () {
+			var elm = compileDirective(template.sm, $scope);
+			expect(elm.hasClass('toggle-switch-sm')).toEqual(true);
+		});
+	});
+
+	describe('when there is a class of `toggle-switch-lg`', function () {
+		it('is xs sized', function () {
+			var elm = compileDirective(template.lg, $scope);
+			expect(elm.hasClass('toggle-switch-lg')).toEqual(true);
+		});
+	});
+
 	describe('when there is a custom `on-label`', function () {
 		// @TODO: figure out how to deal with html in Angular 1.2
 		//describe('is html', function() {
@@ -123,6 +149,8 @@ describe('Toggle Switch', function () {
 
 	describe('when toggle is disabled', function () {
 		it('ngModel does not change on click', function () {
+			// @TODO: figure out the best way to test disable, currently the css prevents to click
+			// @TODO: should the directive rely purely on css OR should it have js logic to detect the disabled attr and prevent changing?
 			$scope.switchState = true;
 			$scope.isDisabled = true;
 			var elm = compileDirective(template.disabled, $scope);
