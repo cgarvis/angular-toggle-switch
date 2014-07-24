@@ -39,7 +39,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       scope.toggle = function toggle() {
         if(!scope.disabled) {
           scope.model = !scope.model;
-          ngModelCtrl.$setViewValue(scope.model)
+          ngModelCtrl.$setViewValue(scope.model);
         }
       };
     }
