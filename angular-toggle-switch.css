@@ -51,7 +51,7 @@
     left: -50%
 }
 
-.switch .swtich-left, .switch .switch-right {
+.switch .switch-left, .switch .switch-right {
     z-index: 1;
 }
 
