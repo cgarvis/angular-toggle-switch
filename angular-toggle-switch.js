@@ -36,8 +36,6 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       });
 
       ngModelCtrl.$formatters.push(function(modelValue){
-        //console.log('formatters', modelValue);
-        //return modelValue;
         if(attrs.onValue === modelValue) {
           return true;
         }
@@ -45,7 +43,6 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       });
 
       ngModelCtrl.$parsers.push(function(viewValue){
-        //console.log('parsers', viewValue);
         if(viewValue) {
           return attrs.onValue;
         }
