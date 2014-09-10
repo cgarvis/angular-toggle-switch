@@ -21,8 +21,12 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       if (!attrs.offLabel) { attrs.offLabel = 'Off'; }
       if (!attrs.knobLabel) { attrs.knobLabel = '\u00a0'; }
       if (!attrs.disabled) { attrs.disabled = false; }
-      element.on('click', function() {
-        scope.$apply(scope.toggle);
+      if (!attrs.stopPropagation) { attrs.stopPropagation = false; }
+      element.on('click', function(e) {
+          scope.$apply(scope.toggle);
+          if (attrs.stopPropagation == true || attrs.stopPropagation === "true") {
+              e.stopPropagation();
+          }
       });
 
       ngModelCtrl.$formatters.push(function(modelValue){
