@@ -36,32 +36,29 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       });
 
       ngModelCtrl.$formatters.push(function(modelValue){
-         return modelValue;
+        //console.log('formatters', modelValue);
+        //return modelValue;
+        if(attrs.onValue === modelValue) {
+          return true;
+        }
+        return false;
       });
 
       ngModelCtrl.$parsers.push(function(viewValue){
-        return viewValue;
+        //console.log('parsers', viewValue);
+        if(viewValue) {
+          return attrs.onValue;
+        }
+        return attrs.offValue;
       });
 
       ngModelCtrl.$render = function(){
-          //scope.model = ngModelCtrl.$viewValue;
-          if(attrs.onValue === ngModelCtrl.$viewValue) {
-            scope.model = true;
-          }
-          else {
-            scope.model = false;
-          }
+          scope.model = ngModelCtrl.$viewValue;
       };
       scope.toggle = function toggle() {
         if(!scope.disabled) {
           scope.model = !scope.model;
-          //ngModelCtrl.$setViewValue(scope.model);
-          if(scope.model) {
-            ngModelCtrl.$setViewValue(scope.onValue);
-          }
-          else {
-            ngModelCtrl.$setViewValue(scope.offValue);
-          }
+          ngModelCtrl.$setViewValue(scope.model);
         }
       };
     }
