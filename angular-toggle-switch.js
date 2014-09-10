@@ -7,7 +7,9 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       disabled: '@',
       onLabel: '@',
       offLabel: '@',
-      knobLabel: '@'
+      knobLabel: '@',
+      onValue: '@',
+      offValue: '@'
     },
     template: '<div role="radio" class="switch" ng-class="{ \'disabled\': disabled }">' +
         '<div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
@@ -21,16 +23,30 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       if (!attrs.offLabel) { attrs.offLabel = 'Off'; }
       if (!attrs.knobLabel) { attrs.knobLabel = '\u00a0'; }
       if (!attrs.disabled) { attrs.disabled = false; }
+      if (!attrs.onValue) { attrs.onValue = true; }
+      if (!attrs.offValue) { attrs.offValue = false; }
+      //if values are number
+      if((+attrs.onValue).toString() === attrs.onValue && (+attrs.offValue).toString() === attrs.offValue) {
+        attrs.onValue = parseInt(attrs.onValue);
+        attrs.offValue = parseInt(attrs.offValue);
+      }
+
       element.on('click', function() {
         scope.$apply(scope.toggle);
       });
 
       ngModelCtrl.$formatters.push(function(modelValue){
-         return modelValue;
+        if(attrs.onValue === modelValue) {
+          return true;
+        }
+        return false;
       });
 
       ngModelCtrl.$parsers.push(function(viewValue){
-        return viewValue;
+        if(viewValue) {
+          return attrs.onValue;
+        }
+        return attrs.offValue;
       });
 
       ngModelCtrl.$render = function(){
