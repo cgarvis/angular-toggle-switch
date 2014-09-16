@@ -9,8 +9,8 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       offLabel: '@',
       knobLabel: '@'
     },
-    template: '<div role="radio" class="switch" ng-class="{ \'disabled\': disabled }">' +
-        '<div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
+    template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
+        '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
         '<span class="switch-left" ng-bind="onLabel"></span>' +
         '<span class="knob" ng-bind="knobLabel"></span>' +
         '<span class="switch-right" ng-bind="offLabel"></span>' +
@@ -21,6 +21,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       if (!attrs.offLabel) { attrs.offLabel = 'Off'; }
       if (!attrs.knobLabel) { attrs.knobLabel = '\u00a0'; }
       if (!attrs.disabled) { attrs.disabled = false; }
+
       element.on('click', function() {
         scope.$apply(scope.toggle);
       });
@@ -36,6 +37,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       ngModelCtrl.$render = function(){
           scope.model = ngModelCtrl.$viewValue;
       };
+
       scope.toggle = function toggle() {
         if(!scope.disabled) {
           scope.model = !scope.model;
