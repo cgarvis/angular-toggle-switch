@@ -24,7 +24,7 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
       if (!attrs.stopPropagation) { attrs.stopPropagation = false; }
       element.on('click', function(e) {
           scope.$apply(scope.toggle);
-          if (attrs.stopPropagation == true || attrs.stopPropagation === "true") {
+          if (attrs.stopPropagation === true || attrs.stopPropagation === "true") {
               e.stopPropagation();
           }
       });
