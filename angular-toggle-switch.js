@@ -1,27 +1,53 @@
 angular.module('toggle-switch', ['ng'])
 .provider('toggleSwitchConfig', function() {
 
-  var config, self;
+  var config, self, setup, $templateCache, $injector;
 
   self = this;
   config = {};
 
-  self.setTemplateUrl = function(templateUrl) {
-    config.templateUrl  = templateUrl;
+  setup = function(injector) {
+    $injector = injector;
+    $templateCache = $injector.get('$templateCache');
+    self.setDefaultTemplateUrl();
+  };
+
+  self.setDefaultTemplateUrl = function() {
+
+    var defaultTemplateUrl, defaultTemplate;
+
+    defaultTemplateUrl = 'angular-toggle-switch.html';
+    defaultTemplate = '<div role="radio" class="switch" ng-class="{ \'disabled\': disabled }">' +
+        '<div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
+          '<span class="switch-left" ng-bind="onLabel"></span>' +
+          '<span class="knob" ng-bind="knobLabel"></span>' +
+          '<span class="switch-right" ng-bind="offLabel"></span>' +
+        '</div>' +
+      '</div>';
+
+      $templateCache.put(defaultTemplateUrl, defaultTemplate);
+      config.templateUrl = defaultTemplateUrl;
   };
 
   self.getTemplateUrl = function() {
     return config.templateUrl;
   };
 
-  this.$get = function() {
+  self.setTemplateUrl = function(templateUrl) {
+    config.templateUrl = templateUrl;
+  };
+
+  this.$get = function($injector) {
+
+    setup($injector);
+
     return {
       setTemplateUrl: self.setTemplateUrl,
       getTemplateUrl: self.getTemplateUrl
     };
   };
 })
-.directive('toggleSwitch', function ($templateCache, toggleSwitchConfig) {
+.directive('toggleSwitch', function (toggleSwitchConfig) {
   return {
     restrict: 'EA',
     replace: true,
@@ -32,28 +58,7 @@ angular.module('toggle-switch', ['ng'])
       offLabel: '@',
       knobLabel: '@'
     },
-    templateUrl: function() {
-
-      var templateUrl, template, defaultTemplateUrl;
-
-      templateUrl = toggleSwitchConfig.getTemplateUrl();
-
-      if (templateUrl) {
-        return templateUrl;
-      }
-
-      defaultTempalteUrl = 'angular-toggle-switch.html';
-      template = '<div role="radio" class="switch" ng-class="{ \'disabled\': disabled }">' +
-        '<div class="switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
-          '<span class="switch-left" ng-bind="onLabel"></span>' +
-          '<span class="knob" ng-bind="knobLabel"></span>' +
-          '<span class="switch-right" ng-bind="offLabel"></span>' +
-        '</div>' +
-      '</div>';
-      $templateCache.put(defaultTemplateUrl, template);
-
-      return templateUrl;
-    },
+    templateUrl: toggleSwitchConfig.getTemplateUrl(),
     link: function(scope, element, attrs, ngModelCtrl){
       if (!attrs.onLabel) { attrs.onLabel = 'On'; }
       if (!attrs.offLabel) { attrs.offLabel = 'Off'; }
