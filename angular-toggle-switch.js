@@ -26,14 +26,6 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
         scope.$apply(scope.toggle);
       });
 
-      ngModelCtrl.$formatters.push(function(modelValue){
-         return modelValue;
-      });
-
-      ngModelCtrl.$parsers.push(function(viewValue){
-        return viewValue;
-      });
-
       ngModelCtrl.$render = function(){
           scope.model = ngModelCtrl.$viewValue;
       };
