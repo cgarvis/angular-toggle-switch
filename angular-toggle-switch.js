@@ -42,7 +42,15 @@
         return this.link;
       },
       link: function(scope, element, attrs, ngModelCtrl){
-        if (!attrs.disabled) { attrs.disabled = false; }
+        var isEnabled = true;
+
+        attrs.$observe('disabled', function(disabled) {
+          if(disabled === 'true') {
+            isEnabled = false;
+          } else {
+            isEnabled = true;
+          }
+        });
 
         element.on('click', function() {
           scope.$apply(scope.toggle);
@@ -61,7 +69,7 @@
         };
 
         scope.toggle = function toggle() {
-          if(!scope.disabled) {
+          if(isEnabled) {
             scope.model = !scope.model;
             ngModelCtrl.$setViewValue(scope.model);
           }
