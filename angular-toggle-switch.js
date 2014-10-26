@@ -1,4 +1,21 @@
-angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
+var module = angular.module('toggle-switch', ['ng']);
+
+module.provider('toggleSwitchConfig', function() {
+  this.onLabel = 'On';
+  this.offLabel = 'Off';
+  this.knobLabel = '\u00a0';
+
+  var self = this;
+  this.$get = function() {
+    return {
+      onLabel: self.onLabel,
+      offLabel: self.offLabel,
+      knobLabel: self.knobLabel
+    };
+  };
+});
+
+module.directive('toggleSwitch', function (toggleSwitchConfig) {
   return {
     restrict: 'EA',
     replace: true,
@@ -16,10 +33,14 @@ angular.module('toggle-switch', ['ng']).directive('toggleSwitch', function () {
         '<span class="switch-right" ng-bind="offLabel"></span>' +
         '</div>' +
         '</div>',
+    compile: function(element, attrs) {
+      if (!attrs.onLabel) { attrs.onLabel = toggleSwitchConfig.onLabel; }
+      if (!attrs.offLabel) { attrs.offLabel = toggleSwitchConfig.offLabel; }
+      if (!attrs.knobLabel) { attrs.knobLabel = toggleSwitchConfig.knobLabel; }
+
+      return this.link;
+    },
     link: function(scope, element, attrs, ngModelCtrl){
-      if (!attrs.onLabel) { attrs.onLabel = 'On'; }
-      if (!attrs.offLabel) { attrs.offLabel = 'Off'; }
-      if (!attrs.knobLabel) { attrs.knobLabel = '\u00a0'; }
       if (!attrs.disabled) { attrs.disabled = false; }
 
       element.on('click', function() {
