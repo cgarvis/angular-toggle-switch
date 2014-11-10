@@ -25,7 +25,8 @@
         disabled: '@',
         onLabel: '@',
         offLabel: '@',
-        knobLabel: '@'
+        knobLabel: '@',
+        ngChange : "&"
       },
       template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
           '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
@@ -72,6 +73,9 @@
           if(isEnabled) {
             scope.model = !scope.model;
             ngModelCtrl.$setViewValue(scope.model);
+            if (angular.isDefined(attrs.ngChange)) {
+              $timeout(scope.ngChange);
+            }
           }
         };
       }
