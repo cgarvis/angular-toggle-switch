@@ -35,9 +35,9 @@
           '</div>' +
           '</div>',
       compile: function(element, attrs) {
-        if (!attrs.onLabel) { attrs.onLabel = toggleSwitchConfig.onLabel; }
-        if (!attrs.offLabel) { attrs.offLabel = toggleSwitchConfig.offLabel; }
-        if (!attrs.knobLabel) { attrs.knobLabel = toggleSwitchConfig.knobLabel; }
+        if (angular.isUndefined(attrs.onLabel)) { attrs.onLabel = toggleSwitchConfig.onLabel; }
+        if (angular.isUndefined(attrs.offLabel)) { attrs.offLabel = toggleSwitchConfig.offLabel; }
+        if (angular.isUndefined(attrs.knobLabel)) { attrs.knobLabel = toggleSwitchConfig.knobLabel; }
 
         return this.link;
       },
