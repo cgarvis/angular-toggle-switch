@@ -22,12 +22,12 @@
       replace: true,
       require:'ngModel',
       scope: {
-        disabled: '@',
+        isDisabled: '=?',
         onLabel: '@',
         offLabel: '@',
         knobLabel: '@'
       },
-      template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
+      template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': isDisabled }">' +
           '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
           '<span class="switch-left" ng-bind="onLabel"></span>' +
           '<span class="knob" ng-bind="knobLabel"></span>' +
@@ -44,8 +44,8 @@
       link: function(scope, element, attrs, ngModelCtrl){
         var isEnabled = true;
 
-        attrs.$observe('disabled', function(disabled) {
-          if(disabled === 'true') {
+        scope.$watch('isDisabled', function(disabled){
+          if(disabled === true) {
             isEnabled = false;
           } else {
             isEnabled = true;
