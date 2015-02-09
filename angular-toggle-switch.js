@@ -27,7 +27,7 @@
         offLabel: '@',
         knobLabel: '@'
       },
-      template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }" tabindex="0">' +
+      template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
           '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
           '<span class="switch-left" ng-bind="onLabel"></span>' +
           '<span class="knob" ng-bind="knobLabel"></span>' +
