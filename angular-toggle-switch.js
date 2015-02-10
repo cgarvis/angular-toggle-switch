@@ -42,16 +42,7 @@
         return this.link;
       },
       link: function(scope, element, attrs, ngModelCtrl){
-        var isEnabled = true,
-        KEY_SPACE = 32;
-
-        attrs.$observe('disabled', function(disabled) {
-          if(disabled === 'true') {
-            isEnabled = false;
-          } else {
-            isEnabled = true;
-          }
-        });
+        var KEY_SPACE = 32;
 
         element.on('click', function() {
           scope.$apply(scope.toggle);
@@ -77,7 +68,8 @@
         };
 
         scope.toggle = function toggle() {
-          if(isEnabled) {
+          console.log('disabled is', scope.disabled);
+          if(!scope.disabled) {
             scope.model = !scope.model;
             ngModelCtrl.$setViewValue(scope.model);
           }
