@@ -85,6 +85,16 @@
 
 <toggle-switch ng-model="switchState" knob-label="TV"></toggle-switch>
 
+<h3> <a name="disabled" class="anchor" href="#disabled"><span class="octicon octicon-link"></span></a>Disabled</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;toggle-switch</span>
+    <span class="na">ng-model=</span><span class="s">"switchStatus"</span>
+    <span class="na">ng-model=</span><span class="s">"{{true}}"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;toggle-switch&gt;</span>
+</pre></div>
+
+<toggle-switch ng-model="switchState" ng-disabled="{{true}}"></toggle-switch>
+
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/cgarvis">cgarvis</a></p>
