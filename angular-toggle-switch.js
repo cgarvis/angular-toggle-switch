@@ -42,7 +42,8 @@
         return this.link;
       },
       link: function(scope, element, attrs, ngModelCtrl){
-        var isEnabled = true;
+        var isEnabled = true,
+        KEY_SPACE = 32;
 
         attrs.$observe('disabled', function(disabled) {
           if(disabled === 'true') {
@@ -54,6 +55,13 @@
 
         element.on('click', function() {
           scope.$apply(scope.toggle);
+        });
+
+        element.on('keydown', function(e) {
+          var key = e.which ? e.which : e.keyCode;
+          if (key === KEY_SPACE) {
+            scope.$apply(scope.toggle);
+          }
         });
 
         ngModelCtrl.$formatters.push(function(modelValue){
