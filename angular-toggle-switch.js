@@ -68,7 +68,6 @@
         };
 
         scope.toggle = function toggle() {
-          console.log('disabled is', scope.disabled);
           if(!scope.disabled) {
             scope.model = !scope.model;
             ngModelCtrl.$setViewValue(scope.model);
