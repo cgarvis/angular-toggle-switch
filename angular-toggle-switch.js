@@ -1,7 +1,7 @@
 (function() {
   var module = angular.module('toggle-switch', ['ng']);
 
-  module.provider('toggleSwitchConfig', function() {
+  module.provider('toggleSwitchConfig', [function() {
     this.onLabel = 'On';
     this.offLabel = 'Off';
     this.knobLabel = '\u00a0';
@@ -14,9 +14,9 @@
         knobLabel: self.knobLabel
       };
     };
-  });
+  }]);
 
-  module.directive('toggleSwitch', function (toggleSwitchConfig) {
+  module.directive('toggleSwitch',['toggleSwitchConfig', function (toggleSwitchConfig) {
     return {
       restrict: 'EA',
       replace: true,
@@ -75,5 +75,5 @@
         };
       }
     };
-  });
+  }]);
 })();
