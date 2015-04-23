@@ -63,6 +63,10 @@
           return viewValue;
         });
 
+        ngModelCtrl.$viewChangeListeners.push(function() {
+          scope.$eval(attrs.ngChange);
+        });
+
         ngModelCtrl.$render = function(){
             scope.model = ngModelCtrl.$viewValue;
         };
