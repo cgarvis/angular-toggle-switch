@@ -22,7 +22,6 @@
       replace: true,
       require:'ngModel',
       scope: {
-        disabled: '@',
         onLabel: '@',
         offLabel: '@',
         knobLabel: '@'
@@ -53,6 +52,10 @@
           if (key === KEY_SPACE) {
             scope.$apply(scope.toggle);
           }
+        });
+
+        attrs.$observe('disabled', function(val){
+          scope.disabled = val;
         });
 
         ngModelCtrl.$formatters.push(function(modelValue){
