@@ -68,7 +68,7 @@
         });
 
         ngModelCtrl.$render = function(){
-            scope.model = ngModelCtrl.$viewValue;
+          scope.model = ngModelCtrl.$viewValue;
         };
 
         scope.toggle = function toggle() {
