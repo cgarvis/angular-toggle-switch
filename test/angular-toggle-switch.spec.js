@@ -6,7 +6,7 @@ describe('Toggle Switch', function() {
   var offLabelTemplate = '<toggle-switch ng-model="switchState" off-label="CUSTOM-OFF">\n</toggle-switch>';
   var knobLabelTemplate = '<toggle-switch ng-model="switchState" knob-label="CUSTOM">\n</toggle-switch>';
   var htmlLabelsTemplate = '<toggle-switch ng-model="switchState" on-label="<i class=\'icon-ok icon-white\'></i>" off-label="<i class=\'icon-remove\'></i>">\n</toggle-switch>';
-  var disabledTemplate = '<toggle-switch ng-model="switchState" ng-disabled="isDisabled">\n</toggle-switch>';
+  var ngDisabledTemplate = '<toggle-switch ng-model="switchState" ng-disabled="isDisabled">\n</toggle-switch>';
   var changeTemplate = '<toggle-switch ng-model="switchState" ng-change="changedState()">\n</toggle-switch>';
 
   // Load up just our module
@@ -141,7 +141,7 @@ describe('Toggle Switch', function() {
     it('ngModel does not change on click', function() {
       $scope.switchState = true;
       $scope.isDisabled = true;
-      var elm = compileDirective(disabledTemplate, $scope);
+      var elm = compileDirective(ngDisabledTemplate, $scope);
       elm.triggerHandler('click');
       expect($scope.switchState).toEqual(true);
     });
@@ -151,7 +151,7 @@ describe('Toggle Switch', function() {
         $scope.switchState = true;
         $scope.isDisabled = true;
 
-        var elm = compileDirective(disabledTemplate, $scope);
+        var elm = compileDirective(ngDisabledTemplate, $scope);
 
         $scope.$apply(function() {
           $scope.isDisabled = false;
