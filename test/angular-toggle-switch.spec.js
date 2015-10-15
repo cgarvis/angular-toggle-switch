@@ -7,6 +7,7 @@ describe('Toggle Switch', function() {
   var knobLabelTemplate = '<toggle-switch ng-model="switchState" knob-label="CUSTOM">\n</toggle-switch>';
   var htmlLabelsTemplate = '<toggle-switch ng-model="switchState" on-label="<i class=\'icon-ok icon-white\'></i>" off-label="<i class=\'icon-remove\'></i>">\n</toggle-switch>';
   var ngDisabledTemplate = '<toggle-switch ng-model="switchState" ng-disabled="isDisabled">\n</toggle-switch>';
+  var disabledAttrTemplate = '<toggle-switch ng-model="switchState" disabled>\n</toggle-switch>';
   var changeTemplate = '<toggle-switch ng-model="switchState" ng-change="changedState()">\n</toggle-switch>';
 
   // Load up just our module
@@ -138,27 +139,48 @@ describe('Toggle Switch', function() {
   });
 
   describe('when toggle is disabled', function() {
-    it('ngModel does not change on click', function() {
-      $scope.switchState = true;
-      $scope.isDisabled = true;
-      var elm = compileDirective(ngDisabledTemplate, $scope);
-      elm.triggerHandler('click');
-      expect($scope.switchState).toEqual(true);
-    });
 
-    describe('then re-enabled', function() {
-      it('ngModel changes on click', function() {
+    describe('with ng-disabled', function() {
+      it('ngModel does not change on click', function() {
         $scope.switchState = true;
         $scope.isDisabled = true;
-
         var elm = compileDirective(ngDisabledTemplate, $scope);
-
-        $scope.$apply(function() {
-          $scope.isDisabled = false;
-        });
         elm.triggerHandler('click');
-        expect($scope.switchState).toEqual(false);
+        expect($scope.switchState).toEqual(true);
       });
+
+      describe('then re-enabled', function() {
+        it('ngModel changes on click', function() {
+          $scope.switchState = true;
+          $scope.isDisabled = true;
+
+          var elm = compileDirective(ngDisabledTemplate, $scope);
+
+          $scope.$apply(function() {
+            $scope.isDisabled = false;
+          });
+          elm.triggerHandler('click');
+          expect($scope.switchState).toEqual(false);
+        });
+      });
+    });
+
+    describe('with "disabled" attribute', function() {
+      // @TODO
+    });
+
+    it('should overried disabled attribute if ng-disabled is present', function() {
+      $scope.switchState = true;
+      $scope.isDisabled = false;
+
+      var templateWithDisabledAndNgDisabled =
+        '<toggle-switch ng-model="switchState"' +
+        '  ng-disabled="isDisabled" disabled>\n' +
+        '</toggle-switch>';
+
+      var elm = compileDirective(templateWithDisabledAndNgDisabled, $scope);
+
+      // @TODO: figure out how to test this
     });
   });
 });
