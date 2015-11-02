@@ -52,6 +52,7 @@
           var key = e.which ? e.which : e.keyCode;
           if (key === KEY_SPACE) {
             scope.$apply(scope.toggle);
+            $event.preventDefault();
           }
         });
 
