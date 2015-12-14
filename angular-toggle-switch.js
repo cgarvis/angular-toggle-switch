@@ -27,17 +27,17 @@
         offLabel: '@',
         knobLabel: '@'
       },
-      template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
-          '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
+      template: '<div role="radio" class="toggle-switch" ng-class="{\'disabled\': disabled, \'switch-off\': !model, \'switch-on\': model}">' +
+          '<div class="toggle-switch-animate">' +
           '<span class="switch-left" ng-bind="onLabel"></span>' +
           '<span class="knob" ng-bind="knobLabel"></span>' +
           '<span class="switch-right" ng-bind="offLabel"></span>' +
           '</div>' +
           '</div>',
       compile: function(element, attrs) {
-        if (!attrs.onLabel) { attrs.onLabel = toggleSwitchConfig.onLabel; }
-        if (!attrs.offLabel) { attrs.offLabel = toggleSwitchConfig.offLabel; }
-        if (!attrs.knobLabel) { attrs.knobLabel = toggleSwitchConfig.knobLabel; }
+        if (angular.isUndefined(attrs.onLabel)) { attrs.onLabel = toggleSwitchConfig.onLabel; }
+        if (angular.isUndefined(attrs.offLabel)) { attrs.offLabel = toggleSwitchConfig.offLabel; }
+        if (angular.isUndefined(attrs.knobLabel)) { attrs.knobLabel = toggleSwitchConfig.knobLabel; }
 
         return this.link;
       },

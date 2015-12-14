@@ -43,11 +43,18 @@
     z-index: 100;
 }
 
-.toggle-switch .switch-on {
+.toggle-switch-animate {
+    transition: left 0.5s;
+    -o-transition: left 0.5s;
+    -moz-transition: left 0.5s;
+    -webkit-transition: left 0.5s;
+}
+
+.toggle-switch.switch-on .toggle-switch-animate {
     left: 0%;
 }
 
-.toggle-switch .switch-off {
+.toggle-switch.switch-off .toggle-switch-animate {
     left: -50%
 }
 
@@ -63,11 +70,4 @@
 .toggle-switch .switch-right {
     color: #333;
     background: #f0f0f0;
-}
-
-.toggle-switch-animate {
-    transition: left 0.5s;
-    -o-transition: left 0.5s;
-    -moz-transition: left 0.5s;
-    -webkit-transition: left 0.5s;
 }

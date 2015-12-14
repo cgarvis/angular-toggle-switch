@@ -1,7 +1,10 @@
 describe('Toggle Switch', function() {
-  var $scope, $compile;
+  var $scope, $compile, isolateScope;
 
   var baseTemplate = '<toggle-switch ng-model="switchState">\n</toggle-switch>';
+  var emptyOnLabelTemplate = '<toggle-switch ng-model="switchState" on-label="">\n</toggle-switch>';
+  var emptyOffLabelTemplate = '<toggle-switch ng-model="switchState" off-label="">\n</toggle-switch>';
+  var emptyKnobLabelTemplate = '<toggle-switch ng-model="switchState" knob-label="">\n</toggle-switch>';
   var onLabelTemplate = '<toggle-switch ng-model="switchState" on-label="CUSTOM-ON">\n</toggle-switch>';
   var offLabelTemplate = '<toggle-switch ng-model="switchState" off-label="CUSTOM-OFF">\n</toggle-switch>';
   var knobLabelTemplate = '<toggle-switch ng-model="switchState" knob-label="CUSTOM">\n</toggle-switch>';
@@ -23,6 +26,7 @@ describe('Toggle Switch', function() {
     var elm = angular.element(template);
     $compile(elm)(scope);
     scope.$apply();
+    isolateScope = elm.isolateScope();
     return elm;
   }
 
@@ -113,6 +117,13 @@ describe('Toggle Switch', function() {
     });
   });
 
+  describe('with an empty `on-label`', function() {
+    it('sets the label empty', function() {
+      var elm = compileDirective(emptyOnLabelTemplate, $scope);
+      expect(isolateScope.onLabel).toEqual('');
+    });
+  });
+
   describe('when there is a custom `off-label`', function () {
     // @TODO: figure out how to deal with html in Angular 1.2
     //describe('is html', function() {
@@ -130,10 +141,24 @@ describe('Toggle Switch', function() {
     });
   });
 
+  describe('with an empty `off-label`', function() {
+    it('sets the label empty', function() {
+      var elm = compileDirective(emptyOffLabelTemplate, $scope);
+      expect(isolateScope.offLabel).toEqual('');
+    });
+  });
+
   describe('when there is a custom `knob-label`', function () {
     it('sets the on label', function() {
       var elm = compileDirective(knobLabelTemplate, $scope);
       expect(elm.text()).toContain('CUSTOM');
+    });
+  });
+
+  describe('with an empty `knob-label`', function() {
+    it('sets the label empty', function() {
+      var elm = compileDirective(emptyKnobLabelTemplate, $scope);
+      expect(isolateScope.knobLabel).toEqual('');
     });
   });
 
