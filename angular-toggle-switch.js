@@ -22,7 +22,6 @@
       replace: true,
       require:'ngModel',
       scope: {
-        disabled: '@',
         onLabel: '@',
         offLabel: '@',
         knobLabel: '@'
@@ -54,6 +53,10 @@
             scope.$apply(scope.toggle);
             $event.preventDefault();
           }
+        });
+
+        attrs.$observe('disabled', function(val){
+          scope.disabled = val;
         });
 
         ngModelCtrl.$formatters.push(function(modelValue){

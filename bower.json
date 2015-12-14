@@ -11,8 +11,8 @@
     "url": "https://github.com/cgarvis/angular-toggle-switch.git"
   },
   "devDependencies": {
-    "angular": ">=1.0",
-    "angular-mocks": ">=1.0"
+    "angular": "~1.4.0",
+    "angular-mocks": "~1.4.0"
   },
   "ignore": [
     "**/.*",
@@ -20,5 +20,8 @@
     "karma.conf.js",
     "package.json",
     ".travis.yml"
-  ]
+  ],
+  "resolutions": {
+    "angular": "~1.4.0"
+  }
 }
