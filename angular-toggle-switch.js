@@ -25,7 +25,8 @@
         disabled: '@',
         onLabel: '@',
         offLabel: '@',
-        knobLabel: '@'
+        knobLabel: '@',
+        ngDisabled: '='
       },
       template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
           '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
@@ -69,8 +70,19 @@
         });
 
         ngModelCtrl.$render = function(){
-            scope.model = ngModelCtrl.$viewValue;
+          scope.model = ngModelCtrl.$viewValue;
         };
+
+        scope.$watch('ngDisabled', function() {
+          if (!scope.ngDisabled && 'disabled' in attrs) {
+            delete attrs.disabled;
+            scope.disabled = false;
+          }
+          else if (scope.ngDisabled) {
+            attrs.disabled = 'true';
+            scope.disabled = true;
+          }
+        });
 
         scope.toggle = function toggle() {
           if(!scope.disabled) {
