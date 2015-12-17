@@ -9,7 +9,7 @@
     var self = this;
     this.$get = function() {
       return {
-        disabled: '=ngdisabled',
+        disabled: '=ngDisabled',
         onLabel: self.onLabel,
         offLabel: self.offLabel,
         knobLabel: self.knobLabel
@@ -46,11 +46,7 @@
         var KEY_SPACE = 32;
 
         attrs.$observe('disabled', function (disabled) {
-          if (disabled === 'true' || disabled) {
-              isEnabled = false;
-          } else {
-              isEnabled = true;
-          }
+          isEnabled=!disabled
           scope.disabled = disabled;
         });
 
