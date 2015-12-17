@@ -30,8 +30,8 @@
 }
 
 .toggle-switch > div {
-    position: relative;
     width: 150%;
+
 }
 
 .toggle-switch .knob {
@@ -48,7 +48,7 @@
 }
 
 .toggle-switch .switch-off {
-    left: -50%
+    margin-left: -50%;
 }
 
 .toggle-switch .switch-left, .toggle-switch .switch-right {
@@ -66,8 +66,8 @@
 }
 
 .toggle-switch-animate {
-    transition: left 0.5s;
-    -o-transition: left 0.5s;
-    -moz-transition: left 0.5s;
-    -webkit-transition: left 0.5s;
+    transition: margin-left 0.5s;
+    -o-transition: margin-left 0.5s;
+    -moz-transition: margin-left 0.5s;
+    -webkit-transition: margin-left 0.5s;
 }
