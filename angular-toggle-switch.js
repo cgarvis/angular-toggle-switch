@@ -46,7 +46,7 @@
         var KEY_SPACE = 32;
 
         attrs.$observe('disabled', function (disabled) {
-          isEnabled=!disabled
+          isEnabled=!disabled;
           scope.disabled = disabled;
         });
 
