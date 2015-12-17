@@ -9,6 +9,7 @@
     var self = this;
     this.$get = function() {
       return {
+        disabled: '=ngdisabled',
         onLabel: self.onLabel,
         offLabel: self.offLabel,
         knobLabel: self.knobLabel
@@ -43,6 +44,15 @@
       },
       link: function(scope, element, attrs, ngModelCtrl){
         var KEY_SPACE = 32;
+
+        attrs.$observe('disabled', function (disabled) {
+          if (disabled === 'true' || disabled) {
+              isEnabled = false;
+          } else {
+              isEnabled = true;
+          }
+          scope.disabled = disabled;
+        });
 
         element.on('click', function() {
           scope.$apply(scope.toggle);
