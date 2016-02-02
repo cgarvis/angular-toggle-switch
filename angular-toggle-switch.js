@@ -25,7 +25,8 @@
         disabled: '@',
         onLabel: '@',
         offLabel: '@',
-        knobLabel: '@'
+        knobLabel: '@',
+        reverse: '@'
       },
       template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
           '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
@@ -44,6 +45,9 @@
       link: function(scope, element, attrs, ngModelCtrl){
         var KEY_SPACE = 32;
 
+        var trueValue = attrs.reverse ? false : true;
+        var falseValue = attrs.reverse ? true : false;
+
         element.on('click', function() {
           scope.$apply(scope.toggle);
         });
@@ -57,11 +61,11 @@
         });
 
         ngModelCtrl.$formatters.push(function(modelValue){
-          return modelValue;
+          return modelValue === trueValue;
         });
 
         ngModelCtrl.$parsers.push(function(viewValue){
-          return viewValue;
+          return viewValue ? trueValue : falseValue;
         });
 
         ngModelCtrl.$viewChangeListeners.push(function() {
