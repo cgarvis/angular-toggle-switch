@@ -25,13 +25,16 @@
         disabled: '@',
         onLabel: '@',
         offLabel: '@',
-        knobLabel: '@'
+        knobLabel: '@',
+        ariaLabelOff: '@',
+        ariaLabelOn: '@'
+
       },
       template: '<div role="radio" class="toggle-switch" ng-class="{ \'disabled\': disabled }">' +
           '<div class="toggle-switch-animate" ng-class="{\'switch-off\': !model, \'switch-on\': model}">' +
           '<span class="switch-left" ng-bind="onLabel"></span>' +
-          '<span class="knob" ng-bind="knobLabel"></span>' +
-          '<span class="switch-right" ng-bind="offLabel"></span>' +
+          '<span class="knob" ng-bind="knobLabel" aria-label="{{scope.ariaLabelOn}}"></span>' +
+          '<span class="switch-right" aria-label="{{scope.ariaLabelOff}}" ng-bind="offLabel"></span>' +
           '</div>' +
           '</div>',
       compile: function(element, attrs) {
